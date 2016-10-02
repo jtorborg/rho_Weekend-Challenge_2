@@ -12,6 +12,7 @@ $(document).ready(function() {
                 data.forEach(function(person, i) {
                     //DOM manipulation
                     //appendDom(person);
+                    appendBlocks(person, i);
                     console.log(person);
                     console.log(i);
                     //Per Ryan: adding another property is probably not necessary
@@ -24,33 +25,33 @@ $(document).ready(function() {
                 }); //end of forEach
 
                 $('#button-next').on('click', function() {
-
                     console.log(this);
-
                     console.log("next button works");
+
                     studentIndex++;
                     if (studentIndex >= data.length) {
                         studentIndex = 0;
                     }
+
                     console.log("student Index:", studentIndex);
                     console.log("student Array:", data);
 
                     for (var i = 0; i < data.length; i++) {
                         if (studentIndex == i) {
+                            var item = $('<h3>' + data[i].name + '</h3>' + '<a href = "https://www.github.com/' + data[i].githubUserName + '">https://www.github.com/'+data[i].githubUserName+'</a>' + '<p>' + data[i].shoutout + '</p>').fadeIn(1000);
                             $('#selected').text('');
+                            $('#selected').append(item);
 
-                            $('#selected').append('<h3>' + data[i].name + '</h3>' + '<h5>'  + data[i].githubUserName + '<h5>' + '<p>'  + data[i].shoutout + '</p>');
-
+                            //$('#selected').fadeIn(300);
                         }
+
                     }
-
-
+                    assignClass();
+                    removeClassNext();
 
                     console.log("Student Index", studentIndex);
                     console.log("Student Array", data);
                     console.log("Student Array Length", data.length);
-
-
 
                 }); //end of next button event listener
 
@@ -61,10 +62,10 @@ $(document).ready(function() {
                     console.log("prev button works");
                     studentIndex--;
                     if (studentIndex < 0) {
-                        studentIndex = data.length;
+                        studentIndex = data.length - 1;
                     }
                     console.log("Student Index", studentIndex);
-                    console.log("Student Array Data Index", data.dataIndex);
+                    //console.log("Student Array Data Index", data.dataIndex);
                     console.log("Student Array Length", data.length);
 
                     // for (var i = 0; i < data.length; i++) {
@@ -76,13 +77,14 @@ $(document).ready(function() {
 
                     for (var i = 0; i < data.length; i++) {
                         if (studentIndex == i) {
+                            var item = $('<h3>' + data[i].name + '</h3>' + '<p> https://www.github.com/' + data[i].githubUserName + '</p>' + '<p>' + data[i].shoutout + '</p>').fadeIn(1000);
                             $('#selected').text('');
-
-                            $('#selected').append('<h3>' + data[i].name + '</h3>' + '<h5>'  + data[i].githubUserName + '<h5>' + '<p>'  + data[i].shoutout + '</p>');
+                            $('#selected').append(item);
 
                         }
                     }
-
+                    assignClass();
+                    removeClassPrev();
                 }); //end of previous button event listener
 
 
@@ -93,8 +95,46 @@ $(document).ready(function() {
                     console.log("works");
                 }; //end of showPerson function
 
+                function appendBlocks(person, i) {
+                    var $blockDiv = $('<div class="block blue" id = "'+i+'"></div>');
+                    $('#blockContainer').append($blockDiv);
+                  //  $('#blockContainer').children().last().data('id', data[i]);
+                    console.log(i);
+                    console.log(studentIndex);
+                    //assignClass(person, i);
 
-            } //end of AJAX SUCCESS function
+                };
+
+function assignClass() {
+      //var adjustedStudentIndex = studentIndex-1;
+      console.log("Student Index", studentIndex);
+      //console.log("Adjusted Student Index", adjustedStudentIndex);
+     $('#'+ studentIndex).addClass('red');
+
+}
+
+function removeClassPrev() {
+  var adjustedStudentIndex = studentIndex+1;
+  console.log("Student Index", studentIndex);
+  console.log("Adjusted Student Index", adjustedStudentIndex);
+  $('#' + adjustedStudentIndex).removeClass('red');
+}
+
+function removeClassNext() {
+  var adjustedStudentIndex = studentIndex-1;
+  console.log("Student Index", studentIndex);
+  console.log("Adjusted Student Index", adjustedStudentIndex);
+  if (adjustedStudentIndex <  0) {
+adjustedStudentIndex == 18;
+
+  }
+
+  console.log("Adjusted Student Index Exception", adjustedStudentIndex);
+
+  $('#' + adjustedStudentIndex).removeClass('red');
+}
+
+            }//end of AJAX SUCCESS function
 
     }); //end of AJAX function
 
@@ -121,6 +161,7 @@ $(document).ready(function() {
 // $personDiv.append('<p>' + person.githubUserName + '</p>');
 // $personDiv.append('<p>' + person.shoutout + '</p>');
 // $('#ajax-person').append($personDiv);
+
 
 
 

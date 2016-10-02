@@ -1,0 +1,94 @@
+#ajax-person {
+    background-color: #bc2e0b;
+    border-radius: 10px;
+    width: 400px;
+    margin: auto;
+}
+
+#selected {
+    background-color: #0B99BC;
+    font-family: 'Open Sans', serif;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 10px;
+    height: 200px;
+    padding: 10px;
+}
+
+#button-next {
+    font-family: 'Open Sans', serif;
+    font-size: 18px;
+    display: block;
+    text-align: center;
+    margin: auto;
+    padding-bottom: 10px;
+
+}
+
+#button-prev {
+    font-family: 'Open Sans', serif;
+    font-size: 18px;
+    display: block;
+    text-align: center;
+    margin: auto;
+    padding-bottom: 10px;
+}
+
+h1 {
+    color: white;
+    font-family: 'Open Sans', serif;
+    text-align: center;
+}
+
+h3 {
+    color: white;
+    font-family: 'Open Sans', serif;
+    text-align: center;
+}
+
+p {
+    color: white;
+    font-family: 'Open Sans', serif;
+    text-align: center;
+}
+
+h5 {
+    color: white;
+    font-family: 'Open Sans', serif;
+    text-align: center;
+}
+
+a {
+    color: #bc2e0b;
+    font-weight: bold;
+}
+
+#blockContainer {
+
+padding-top: 20px;
+padding-left: 225px;
+
+}
+
+.blue {
+
+  width: 40px;
+  height: 40px;
+  background-color: blue;
+  margin: auto;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 50px;
+    background-color: #0B99BC;
+
+
+}
+
+
+.red {
+
+  background-color: red;
+
+
+
+}
