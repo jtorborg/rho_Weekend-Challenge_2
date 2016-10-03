@@ -7,10 +7,10 @@ The application has two navigational buttons that display the current "selected"
 The carousel of circles at the bottom of the page changes color to corresponds to each "selected" student.
 
 
-#Technologies Used
+###Technologies Used
 
 HTML, CSS, jQuery, AJAX
 
-#Authors
+###Authors
 
 Jackie Torborg
